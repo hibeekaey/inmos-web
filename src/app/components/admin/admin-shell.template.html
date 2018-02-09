@@ -1,0 +1,150 @@
+<div id="pcoded" (window:resize)="onResize($event)" class="pcoded iscollapsed" theme-layout="vertical" vertical-placement="left" vertical-layout="wide" [attr.pcoded-device-type]="deviceType" [attr.vertical-nav-type]="verticalNavType" [attr.vertical-effect]="verticalEffect" vnavigation-view="view1">
+  <div class="pcoded-overlay-box"></div>
+  <div class="pcoded-container navbar-wrapper">
+    <nav class="navbar header-navbar pcoded-header" header-theme="theme4">
+      <div class="navbar-wrapper">
+        <div class="navbar-logo" navbar-theme="theme5">
+          <a class="mobile-menu" id="mobile-collapse" href="javascript:;" (click)="toggleOpened()" [exclude]="'#main_navbar'" (clickOutside)="onClickedOutside($event)">
+            <i class="ti-menu"></i>
+          </a>
+          <a [routerLink]="['/']">
+            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+          </a>
+          <a (click)="onMobileMenu()" class="mobile-options">
+            <i class="ti-more"></i>
+          </a>
+        </div>
+
+        <div class="navbar-container">
+          <div>
+            <ul class="nav-left">
+              <li>
+                <div class="sidebar_toggle"><a href="javascript:;" (click)="toggleOpened()"><i class="ti-menu f-18"></i></a></div>
+              </li>
+              <li>
+                <a href="javascript:;" appToggleFullscreen>
+                  <i class="ti-fullscreen"></i>
+                </a>
+              </li>
+            </ul>
+            <ul [@mobileMenuTop]="isCollapsedMobile" class="nav-right" [ngClass]="isCollapsedMobile">
+              <li class="header-notification">
+                <a href="javascript:;">
+                  <i class="ti-bell"></i>
+                  <span class="badge">5</span>
+                </a>
+                <ul class="show-notification">
+                  <li>
+                    <h6>Notifications</h6>
+                    <label class="label label-danger">New</label>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <h5 class="notification-user">John Doe</h5>
+                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <span class="notification-time">30 minutes ago</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <h5 class="notification-user">Joseph William</h5>
+                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <span class="notification-time">30 minutes ago</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <h5 class="notification-user">Sara Soudein</h5>
+                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <span class="notification-time">30 minutes ago</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="user-profile header-notification">
+                <a [routerLink]="['/']">
+                  <img src="assets/images/user.png" alt="User-Profile-Image">
+                  <span>John Doe</span>
+                  <i class="ti-angle-down"></i>
+                </a>
+                <ul class="show-notification profile-notification">
+                  <li>
+                    <a [routerLink]="['/']">
+                      <i class="ti-layout-sidebar-left"></i> Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="pcoded-main-container">
+      <div class="pcoded-wrapper">
+        <nav id="main_navbar" class=" pcoded-navbar" navbar-theme="theme1" active-item-theme="theme5" sub-item-theme="theme2" active-item-style="style0" pcoded-navbar-position="absolute" (clickOutside)="onClickedOutside($event)" [exclude]="'#mobile-collapse'">
+          <div class="sidebar_toggle"><a href="javascript:;"><i class="icon-close icons"></i></a></div>
+          <div class="pcoded-inner-navbar main-menu" appAccordion slimScroll width="100%" height="100%" size="4px" color="#fff" opacity="0.3" allowPageScroll="false">
+            <div class="">
+              <div class="main-menu-header">
+                <img class="img-40" src="assets/images/user.png" alt="User-Profile-Image">
+                <div class="user-details">
+                  <span>John Doe</span>
+                  <span id="more-details" (click)="toggleOpenedSidebar()">Inventory Admin<i class="ti-angle-down"></i></span>
+                </div>
+              </div>
+
+              <div class="main-menu-content">
+                <ul>
+                  <li [@mobileMenuTop]="isCollapsedSideBar" class="more-details" [ngClass]="isCollapsedSideBar">
+                    <a href="javascript:"><i class="ti-user"></i>Inventory</a>
+                    <a href="javascript:"><i class="ti-settings"></i>Vendors</a>
+                    <a href="javascript:"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="pcoded-content">
+          <div class="pcoded-inner-content">
+            <div class="main-body">
+              <div class="page-wrapper">
+                <app-title></app-title>
+                <app-breadcrumbs></app-breadcrumbs>
+                <div class="page-body">
+                  <router-outlet><spinner></spinner></router-outlet>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<go-top-button [html]="htmlButton"
+               [animate]="true"
+               [speed]="50"
+               [acceleration]="2"
+               [scrollDistance]="100"
+               [styles]="{
+                    'right': '50px',
+                    'bottom': '50px',
+                    'top': 'auto',
+                    'left': 'auto',
+                    'width': 'auto',
+                    'height': 'auto',
+                    'background' : 'transparent'
+                 }">
+</go-top-button>

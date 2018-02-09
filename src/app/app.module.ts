@@ -14,6 +14,9 @@ import { BreadcrumbsComponent } from './layouts/admin/breadcrumbs/breadcrumbs.co
 import { TitleComponent } from './layouts/admin/title/title.component';
 import {ScrollModule} from './scroll/scroll.module';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {LoginComponent} from './components/login/login.component';
+import {ApiService} from './data/remote/api/ApiService';
+import {LoginModule} from './components/login/login.module';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,13 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
     RouterModule.forRoot(AppRoutes),
     FormsModule,
     HttpModule,
-    ScrollModule
+    ScrollModule,
+    LoginModule
   ],
   exports: [ScrollModule],
   providers: [
-      { provide: LocationStrategy, useClass: PathLocationStrategy }
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

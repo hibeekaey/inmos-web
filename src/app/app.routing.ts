@@ -2,9 +2,11 @@ import {Routes} from '@angular/router';
 
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
+import {LoginComponent} from './components/login/login.component';
 
-export const AppRoutes: Routes = [{
-  path: '',
+export const AppRoutes: Routes = [
+  {
+  path: 'admin',
   component: AdminLayoutComponent,
   children: [
     {
@@ -34,16 +36,18 @@ export const AppRoutes: Routes = [{
       loadChildren: './simple-page/simple-page.module#SimplePageModule'
     }
   ]
-}, {
-  path: '',
-  component: AuthLayoutComponent,
-  children: [
-    {
-      path: 'authentication',
-      loadChildren: './authentication/authentication.module#AuthenticationModule'
-    }
-  ]
-}, {
+},  {
   path: '**',
   redirectTo: 'error/404'
 }];
+
+// {
+//   path: '',
+//     component: AuthLayoutComponent,
+//   children: [
+//   {
+//     path: 'authentication',
+//     loadChildren: './authentication/authentication.module#AuthenticationModule'
+//   }
+// ]
+// },
