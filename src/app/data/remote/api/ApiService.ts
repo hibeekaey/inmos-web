@@ -1,6 +1,7 @@
 import {Observable} from 'rxjs/observable';
 import {Injectable} from '@angular/core';
 import {Http, RequestMethod, RequestOptions, Headers} from '@angular/http';
+import {VendorVO} from '../vo/VendorVO';
 
 @Injectable()
 export class ApiService {
@@ -29,6 +30,17 @@ export class ApiService {
     return this.sendGet(`${this.serverUrl}/stock/all`, {});
   }
 
+  updateStockItem(stockId: string, stockName: string, category: string) {
+    return this.http.put(`${this.serverUrl}/stock/${stockId}`, {
+      stock_name: stockName,
+      category: category
+    }, {withCredentials: true });
+  }
+
+  listVendors(): Observable<any> {
+    return this.sendGet(`${this.serverUrl}/vendor/all`, {});
+  }
+
   /**
    * Used to create a new stock item
    * @param {string} name - name of item to be created
@@ -52,6 +64,30 @@ export class ApiService {
 
   removeStockItem(stockId: string): Observable<any> {
     return this.http.delete(`${this.serverUrl}/stock/${stockId}`, { withCredentials: true });
+  }
+
+  createVendor(vendorName: string, email: string, phone: string): Observable<any> {
+    return this.sendPost(`${this.serverUrl}/vendor/new`, {
+      vendor_name: vendorName,
+      contact: {
+        email: [email],
+        phone: [phone]
+      }
+    });
+  }
+
+  removeVendor(vendorId: string): Observable<any> {
+    return this.http.delete(`${this.serverUrl}/vendor/${vendorId}`, { withCredentials: true });
+  }
+
+  updateVendor(vendorId: string, vendorName: string, email: string, phone: string): Observable<any> {
+    return this.http.put(`${this.serverUrl}/vendor/${vendorId}`, {
+      vendor_name: vendorName,
+      contact: {
+        email: [email],
+        phone: [phone]
+      }
+    }, { withCredentials: true });
   }
 
   /**

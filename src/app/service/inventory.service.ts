@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {AddStockVO} from '../data/remote/vo/AddStockVO';
 import {SellItemVO} from '../data/remote/vo/SellItemVO';
 import {SupplyItemVO} from '../data/remote/vo/SupplyItemVO';
+import {UpdateStockItemVO} from '../data/remote/vo/UpdateStockItemVO';
 
 @Injectable()
 export class InventoryService {
@@ -28,5 +29,9 @@ export class InventoryService {
 
   removeItem(stockId: string): Observable<any> {
     return this.service.removeStockItem(stockId);
+  }
+
+  updateItem(stockItem: UpdateStockItemVO): Observable<any> {
+    return this.service.updateStockItem(stockItem.stockId, stockItem.stockName, stockItem.category);
   }
 }

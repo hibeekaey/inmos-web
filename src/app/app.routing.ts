@@ -5,6 +5,7 @@ import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
 import {LoginComponent} from './components/login/login.component';
 import {AdminShellComponent} from './components/admin/admin-shell.component';
 import {InventoryComponent} from './components/admin/inventory.component';
+import {VendorComponent} from './components/admin/vendor.component';
 
 export const AppRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,11 @@ export const AppRoutes: Routes = [
       {
         path: 'inventory',
         component: InventoryComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'vendors',
+        component: VendorComponent,
         pathMatch: 'full'
       }
     ]

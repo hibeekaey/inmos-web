@@ -28,57 +28,15 @@
               </li>
             </ul>
             <ul [@mobileMenuTop]="isCollapsedMobile" class="nav-right" [ngClass]="isCollapsedMobile">
-              <li class="header-notification">
-                <a href="javascript:;">
-                  <i class="ti-bell"></i>
-                  <span class="badge">5</span>
-                </a>
-                <ul class="show-notification">
-                  <li>
-                    <h6>Notifications</h6>
-                    <label class="label label-danger">New</label>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">John Doe</h5>
-                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                        <span class="notification-time">30 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">Joseph William</h5>
-                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                        <span class="notification-time">30 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media">
-                      <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h5 class="notification-user">Sara Soudein</h5>
-                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                        <span class="notification-time">30 minutes ago</span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
               <li class="user-profile header-notification">
                 <a [routerLink]="['/']">
                   <img src="assets/images/user.png" alt="User-Profile-Image">
-                  <span>John Doe</span>
+                  <span>Ibukun Dairo</span>
                   <i class="ti-angle-down"></i>
                 </a>
                 <ul class="show-notification profile-notification">
                   <li>
-                    <a [routerLink]="['/']">
+                    <a [routerLink]="['/login']">
                       <i class="ti-layout-sidebar-left"></i> Logout
                     </a>
                   </li>
@@ -99,7 +57,7 @@
               <div class="main-menu-header">
                 <img class="img-40" src="assets/images/user.png" alt="User-Profile-Image">
                 <div class="user-details">
-                  <span>John Doe</span>
+                  <span>Ibukun Dairo</span>
                   <span id="more-details" (click)="toggleOpenedSidebar()">Inventory Admin<i class="ti-angle-down"></i></span>
                 </div>
               </div>
@@ -107,9 +65,9 @@
               <div class="main-menu-content">
                 <ul>
                   <li [@mobileMenuTop]="isCollapsedSideBar" class="more-details" [ngClass]="isCollapsedSideBar">
-                    <a href="javascript:"><i class="ti-user"></i>Inventory</a>
-                    <a href="javascript:"><i class="ti-settings"></i>Vendors</a>
-                    <a href="javascript:"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                    <a [routerLink]="['/ims/inventory']"><i class="ti-shopping-cart-full"></i>Inventory</a>
+                    <a [routerLink]="['/ims/vendors']"><i class="ti-user"></i>Vendors</a>
+                    <a [routerLink]="['/login']"><i class="ti-layout-sidebar-left"></i>Logout</a>
                   </li>
                 </ul>
               </div>

@@ -7,6 +7,7 @@ import {AnonymousSubscription} from 'rxjs/Subscription';
 import {Observable} from 'rxjs/Observable';
 import {SellItemVO} from '../../data/remote/vo/SellItemVO';
 import {SupplyItemVO} from '../../data/remote/vo/SupplyItemVO';
+import {UpdateStockItemVO} from '../../data/remote/vo/UpdateStockItemVO';
 
 @Component({
   selector: 'app-inventory',
@@ -19,12 +20,14 @@ export class InventoryComponent implements OnInit {
     this.newStockItem = new AddStockVO();
     this.sellingItem = new SellItemVO();
     this.supplyItem = new SupplyItemVO();
+    this.updateItem = new UpdateStockItemVO();
   }
 
   selectedItem: any = null;
   newStockItem: AddStockVO;
   sellingItem: SellItemVO;
   supplyItem: SupplyItemVO;
+  updateItem: UpdateStockItemVO;
   stockItems: Array<any> = [];
   timerSubscription: AnonymousSubscription;
 
@@ -73,6 +76,7 @@ export class InventoryComponent implements OnInit {
     this.selectedItem = item;
     this.sellingItem.stockId = item.stock_id;
     this.supplyItem.stockId = item.stock_id;
+    this.updateItem.stockId = item.stock_id;
     console.log('Item set');
   }
 
@@ -108,6 +112,17 @@ export class InventoryComponent implements OnInit {
       }, error => console.log(error));
   }
 
+  updateStockItem() {
+    this.inventoryService.updateItem(this.updateItem)
+      .subscribe(res => {
+        res = res.json();
+        console.log(res);
+
+        this.refreshData();
+        this.displayUpdateCompletionMessage();
+      }, error => console.log(error));
+  }
+
   displayTransactionCompletionMessage() {
     alert('Item sold');
   }
@@ -118,5 +133,9 @@ export class InventoryComponent implements OnInit {
 
   displayRemoveCompletionMessage() {
     alert('Item successfully deleted');
+  }
+
+  displayUpdateCompletionMessage() {
+    alert('Item successfully updated');
   }
 }
