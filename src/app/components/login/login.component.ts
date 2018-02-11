@@ -15,11 +15,12 @@ export class LoginComponent implements OnLoginListener {
   formData: LoginVO = new LoginVO();
 
   submitForm() {
+    console.log(this.formData.storeId, this.formData.password);
     this.loginService.attemptLogin(this.formData, this);
   }
 
   onLoginSuccess() {
-    // this.router.navigate(['']);
+    this.router.navigate(['/ims']);
     console.log('Login successful');
   }
 

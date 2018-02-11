@@ -17,6 +17,8 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {LoginComponent} from './components/login/login.component';
 import {ApiService} from './data/remote/api/ApiService';
 import {LoginModule} from './components/login/login.module';
+import {AdminModule} from './components/admin/admin.module';
+import {AdminShellComponent} from './components/admin/admin-shell.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {LoginModule} from './components/login/login.module';
     AdminLayoutComponent,
     AuthLayoutComponent,
     BreadcrumbsComponent,
-    TitleComponent
+    TitleComponent,
+    AdminShellComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {LoginModule} from './components/login/login.module';
     FormsModule,
     HttpModule,
     ScrollModule,
-    LoginModule
+    LoginModule,
+    AdminModule
   ],
   exports: [ScrollModule],
   providers: [

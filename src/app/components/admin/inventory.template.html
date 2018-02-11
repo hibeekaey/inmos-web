@@ -1,3 +1,135 @@
-<div class="cotainer-fluid">
+<div class="container-fluid">
+  <div class="row">
+    <div class="text-primary text-lg-center lead">Stock</div>
+  </div>
+  <form class="form-inline" (submit)="onSubmit()" ngNativeValidate>
+    <div class="form-group">
+      <input class="form-control" id="stock_name" type="text" name="stock_name" placeholder="Stock name"
+             [(ngModel)]="newStockItem.stockName" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" id="stock_category" type="text" name="stock_category" placeholder="Category"
+             [(ngModel)]="newStockItem.category" required>
+    </div>
+    <button class="form-control btn btn-primary" type="submit" role="button"> Add </button>
+  </form>
+  <div class="row mt-5">
+    <table class="table col-sm-8 table-striped table-bordered table-responsive" style="height: 400px">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Stock name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost price</th>
+        <th scope="col">Selling price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of stockItems" [style.border-style]="'solid'"
+          [style.border-color]="isSelected(item) ? '#000' : '#fff'" (click)="setSelectedItem(item)">
+        <td>{{item.stock_name}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.cost_price}}</td>
+        <td>{{item.selling_price}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row mt-5 col-sm-4 justify-content-end">
+      <div class="btn-group-vertical" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary"
+                data-toggle="modal" data-target="#supplyModal" [disabled]="productButtonsDisabled()">Supply</button>
+        <button type="button" class="btn btn-secondary"
+                data-toggle="modal" data-target="#sellModal" [disabled]="productButtonsDisabled()">Sell</button>
+        <button type="button" class="btn btn-secondary" [disabled]="productButtonsDisabled()">Edit</button>
+        <button type="button" class="btn btn-secondary"
+                data-toggle="modal" data-target="#removeItemModal" [disabled]="productButtonsDisabled()">Remove</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" id="btnModel" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div id="sellModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sell item</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" (submit)="submitSellItemForm()" ngNativeValidate>
+            <input class="form-control mt-2" type="text" name="stock_id" placeholder="Stock ID"
+                   [(ngModel)]="sellingItem.stockId" hidden required>
+            <input class="form-control mt-2" type="number" name="quantity" placeholder="Quantity"
+                   [(ngModel)]="sellingItem.quantity" required>
+            <input class="form-control mt-2" type="number" name="selling_price" placeholder="Selling price"
+                   [(ngModel)]="sellingItem.sellingPrice" required>
+            <button class="form-control mt-2 btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="supplyModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Supply item</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" (submit)="submitSupplyItemForm()" ngNativeValidate>
+            <input class="form-control mt-2" type="text" name="stock_id" placeholder="Stock ID"
+                   [(ngModel)]="supplyItem.stockId" hidden required>
+            <input class="form-control mt-2" type="text" name="vendor_id" placeholder="Vendor ID"
+                   [(ngModel)]="supplyItem.vendorId" required>
+            <input class="form-control mt-2" type="number" name="quantity" placeholder="Quantity"
+                   [(ngModel)]="supplyItem.quantity" required>
+            <input class="form-control mt-2" type="number" name="selling_price" placeholder="Selling price"
+                   [(ngModel)]="supplyItem.costPrice" required>
+            <button class="form-control mt-2 btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="removeItemModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Remove item</h4>
+        </div>
+        <div class="modal-body">
+          <span class="text-danger">Are you sure you want to delete that item?</span>
+          <form class="form-group mt-2" (submit)="removeItem(selectedItem.stock_id)" ngNativeValidate>
+            <button class="form-control mt-2 btn btn-primary">Yes</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

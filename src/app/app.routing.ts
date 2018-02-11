@@ -3,8 +3,27 @@ import {Routes} from '@angular/router';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
 import {LoginComponent} from './components/login/login.component';
+import {AdminShellComponent} from './components/admin/admin-shell.component';
+import {InventoryComponent} from './components/admin/inventory.component';
 
 export const AppRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'ims',
+    component: AdminShellComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'inventory',
+        pathMatch: 'full'
+      },
+      {
+        path: 'inventory',
+        component: InventoryComponent,
+        pathMatch: 'full'
+      }
+    ]
+  },
   {
   path: 'admin',
   component: AdminLayoutComponent,
