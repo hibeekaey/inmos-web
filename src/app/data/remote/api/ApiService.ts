@@ -7,7 +7,7 @@ import {VendorVO} from '../vo/VendorVO';
 export class ApiService {
 
   constructor(private http: Http) {
-    this.serverUrl = 'http://localhost:4000';
+    this.serverUrl = 'https://inmos-api.herokuapp.com';
   }
 
   serverUrl: String;
