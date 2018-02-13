@@ -9,7 +9,7 @@
     <div class="col-sm-9">
       <form class="form-inline" (submit)="onSubmit()" ngNativeValidate>
         <div class="form-group">
-          <input class="form-control" id="name" type="text" name="name" placeholder="Vendor name"
+          <input class="form-control" id="name" type="text" name="name" placeholder="Vendor Name"
                  [(ngModel)]="newVendor.vendorName" required>
           <input class="form-control" id="email" type="text" name="email" placeholder="Email"
                  [(ngModel)]="newVendor.email" required>
@@ -26,7 +26,7 @@
     <table class="table col-sm-8 table-striped table-bordered table-responsive" style="height: 400px">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Vendor name</th>
+        <th scope="col">Vendor Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
       </tr>
@@ -43,11 +43,11 @@
     <div class="row mt-5 col-sm-4 justify-content-end">
       <div class="btn-group-vertical" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#editItemModal" [disabled]="actionsDisabled()">Edit</button>
+                data-toggle="modal" data-target="#editItemModal" [disabled]="actionsDisabled()">Edit Vendor</button>
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#removeItemModal" [disabled]="actionsDisabled()">Remove</button>
-        <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#supplyModal">Supply</button>
+                data-toggle="modal" data-target="#removeItemModal" [disabled]="actionsDisabled()">Remove Vendor</button>
+        <!--<button type="button" class="btn btn-secondary"
+                data-toggle="modal" data-target="#supplyModal">Supply</button>-->
       </div>
     </div>
   </div>

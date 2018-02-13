@@ -1,4 +1,4 @@
-import {Observable} from 'rxjs/observable';
+import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {Http, RequestMethod, RequestOptions, Headers} from '@angular/http';
 import {VendorVO} from '../vo/VendorVO';

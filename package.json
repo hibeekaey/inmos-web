@@ -30,6 +30,7 @@
   "homepage": "https://github.com/hibeekaey/inmos-web#readme",
   "dependencies": {
     "@agm/core": "^1.0.0-beta.1",
+    "@angular-devkit/core": "^0.3.1",
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
@@ -42,25 +43,16 @@
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.5",
     "angular-io-slimscroll": "^1.2.11",
     "angular2-notifications": "^0.7.8",
-<<<<<<< HEAD
-    "bootstrap": "4.0.0-beta",
-=======
     "bootstrap": "^4.0.0-alpha.6",
->>>>>>> 7a148eb6d83355205371b612dbf187ef265dccc3
     "core-js": "^2.4.1",
     "install": "^0.10.4",
     "jquery": "^3.2.1",
     "jquery-sparkline": "^2.4.0",
     "morris.js": "^0.5.0",
     "ng-click-outside": "^2.4.1",
-<<<<<<< HEAD
-    "ng2-go-top-button": "2.0.9",
-    "ng2-google-charts": "3.2.0",
-=======
     "ng2-cookies": "^1.0.12",
     "ng2-go-top-button": "^2.0.9",
     "ng2-google-charts": "^3.2.0",
->>>>>>> 7a148eb6d83355205371b612dbf187ef265dccc3
     "ng2-toasty": "^4.0.3",
     "ngx-bootstrap": "^1.9.3",
     "ngx-chips": "^1.5.3",
@@ -73,7 +65,7 @@
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.4",
+    "@angular/cli": "1.6.8",
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
     "@types/jasmine": "~2.5.53",

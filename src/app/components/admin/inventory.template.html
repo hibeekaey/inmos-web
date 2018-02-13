@@ -4,7 +4,7 @@
   </div>
   <form class="form-inline" (submit)="onSubmit()" ngNativeValidate>
     <div class="form-group">
-      <input class="form-control" id="stock_name" type="text" name="stock_name" placeholder="Stock name"
+      <input class="form-control" id="stock_name" type="text" name="stock_name" placeholder="Stock Name"
              [(ngModel)]="newStockItem.stockName" required>
     </div>
     <div class="form-group">
@@ -17,7 +17,7 @@
     <table class="table col-sm-8 table-striped table-bordered table-responsive" style="height: 400px">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Stock name</th>
+        <th scope="col">Stock Name</th>
         <th scope="col">Category</th>
         <th scope="col">Quantity</th>
         <th scope="col">Cost price</th>
@@ -38,13 +38,13 @@
     <div class="row mt-5 col-sm-4 justify-content-end">
       <div class="btn-group-vertical" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#supplyModal" [disabled]="productButtonsDisabled()">Supply</button>
+                data-toggle="modal" data-target="#supplyModal" [disabled]="productButtonsDisabled()">Receive Supply</button>
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#sellModal" [disabled]="productButtonsDisabled()">Sell</button>
+                data-toggle="modal" data-target="#sellModal" [disabled]="productButtonsDisabled()">Sell Item</button>
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#editItemModal" [disabled]="productButtonsDisabled()">Edit</button>
+                data-toggle="modal" data-target="#editItemModal" [disabled]="productButtonsDisabled()">Edit Stock</button>
         <button type="button" class="btn btn-secondary"
-                data-toggle="modal" data-target="#removeItemModal" [disabled]="productButtonsDisabled()">Remove</button>
+                data-toggle="modal" data-target="#removeItemModal" [disabled]="productButtonsDisabled()">Remove Stock</button>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sell item</h4>
+          <h4 class="modal-title">Sell Item</h4>
         </div>
         <div class="modal-body">
           <form class="form-group" (submit)="submitSellItemForm()" ngNativeValidate>
@@ -85,7 +85,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Supply item</h4>
+          <h4 class="modal-title">Receive Supply</h4>
         </div>
         <div class="modal-body">
           <form class="form-group" (submit)="submitSupplyItemForm()" ngNativeValidate>
