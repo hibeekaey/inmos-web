@@ -20,7 +20,7 @@ export class LoginComponent implements OnLoginListener {
   }
 
   onLoginSuccess() {
-    this.router.navigate(['/ims']);
+    this.router.navigate(['/admin']);
     console.log('Login successful');
   }
 

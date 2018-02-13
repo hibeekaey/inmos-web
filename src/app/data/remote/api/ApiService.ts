@@ -41,6 +41,15 @@ export class ApiService {
     return this.sendGet(`${this.serverUrl}/vendor/list`, {});
   }
 
+  supplyVendor(vendorId: string, stockId: string, quantity: number, costPrice: number): Observable<any> {
+    return this.sendPost(`${this.serverUrl}/stock/supply`, {
+      vendor_id: vendorId,
+      stock_id: stockId,
+      quantity: quantity,
+      cost_price: costPrice
+    });
+  }
+
   /**
    * Used to create a new stock item
    * @param {string} name - name of item to be created

@@ -46,6 +46,8 @@
                 data-toggle="modal" data-target="#editItemModal" [disabled]="actionsDisabled()">Edit</button>
         <button type="button" class="btn btn-secondary"
                 data-toggle="modal" data-target="#removeItemModal" [disabled]="actionsDisabled()">Remove</button>
+        <button type="button" class="btn btn-secondary"
+                data-toggle="modal" data-target="#supplyModal">Supply</button>
       </div>
     </div>
   </div>
@@ -91,6 +93,38 @@
             <input class="form-control mt-2" type="text" name="phone" placeholder="Phone"
                    [(ngModel)]="updateItem.phone" required>
             <button class="form-control mt-2 btn btn-primary">update</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="supplyModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Supply vendor</h4>
+        </div>
+        <div class="modal-body">
+
+          <form class="form-group mt-2" (submit)="supplyVendor()" ngNativeValidate>
+            <input class="form-control mt-2" type="text" name="stock_id" placeholder="Stock ID"
+                   [(ngModel)]="supplyItem.stockId" required>
+            <input class="form-control mt-2" type="number" name="quantity" placeholder="Quantity"
+                   [(ngModel)]="supplyItem.quantity" required>
+            <input class="form-control mt-2" type="number" name="cost_price" placeholder="Cost price"
+                   [(ngModel)]="supplyItem.costPrice" required>
+            <select class="form-control mt-2" id="vendor_select" [(ngModel)]="supplyItem.vendorId" name="vendor_select">
+              <option *ngFor="let vendor of vendors" value="{{vendor.vendorId}}">{{vendor.vendorName}}</option>
+            </select>
+            <button class="form-control mt-2 btn btn-primary" type="submit">Supply</button>
           </form>
         </div>
         <div class="modal-footer">

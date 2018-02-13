@@ -10,7 +10,7 @@ import {VendorComponent} from './components/admin/vendor.component';
 export const AppRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: 'ims',
+    path: 'admin',
     component: AdminShellComponent,
     children: [
       {
@@ -31,7 +31,7 @@ export const AppRoutes: Routes = [
     ]
   },
   {
-  path: 'admin',
+  path: 'template',
   component: AdminLayoutComponent,
   children: [
     {

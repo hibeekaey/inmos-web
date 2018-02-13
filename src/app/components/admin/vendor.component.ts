@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {VendorService} from '../../service/vendor.service';
 import {Scheduler} from 'rxjs/Rx';
 import {VendorVO} from '../../data/remote/vo/VendorVO';
+import {SupplyItemVO} from '../../data/remote/vo/SupplyItemVO';
 
 @Component({
   selector: 'app-vendor',
@@ -14,12 +15,14 @@ export class VendorComponent implements OnInit {
     this.vendors = [];
     this.newVendor = new VendorVO();
     this.updateItem = new VendorVO();
+    this.supplyItem = new SupplyItemVO();
   }
 
   newVendor: VendorVO;
   updateItem: VendorVO;
   vendors: Array<VendorVO>;
   selectedVendor: VendorVO;
+  supplyItem: SupplyItemVO;
 
   ngOnInit(): void {
     this.refreshData();
@@ -90,11 +93,31 @@ export class VendorComponent implements OnInit {
       }, error => console.log(error));
   }
 
+  supplyVendor() {
+    this.setVendorId();
+
+    this.vendorService.supplyVendor(this.supplyItem)
+      .subscribeOn(Scheduler.async)
+      .subscribe(() => {
+        this.showVendorSupplySuccess();
+        this.refreshData();
+      }, error => console.log(error));
+  }
+
+  setVendorId() {
+    console.log('Here');
+    console.log(this.supplyItem.vendorId);
+  }
+
   showVendorDeleteSuccess() {
     alert('Vendor successfully deleted');
   }
 
   showVendorUpdateSuccess() {
     alert('Vendor successfully updated');
+  }
+
+  showVendorSupplySuccess() {
+    alert('Vendor successfully supplied');
   }
 }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ApiService} from '../data/remote/api/ApiService';
 import {Observable} from 'rxjs/Observable';
 import {VendorVO} from '../data/remote/vo/VendorVO';
+import {SupplyItemVO} from '../data/remote/vo/SupplyItemVO';
 
 @Injectable()
 export class VendorService {
@@ -22,5 +23,13 @@ export class VendorService {
 
   updateVendor(vendor: VendorVO): Observable<any> {
     return this.service.updateVendor(vendor.vendorId, vendor.vendorName, vendor.email, vendor.phone);
+  }
+
+  supplyVendor(supplyItem: SupplyItemVO): Observable<any> {
+    return this.service.supplyVendor(
+      supplyItem.vendorId,
+      supplyItem.stockId,
+      supplyItem.quantity,
+      supplyItem.costPrice);
   }
 }
