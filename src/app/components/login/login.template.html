@@ -1,0 +1,9 @@
+<div class="container">
+  <form class="form-group mt-5 mx-auto form-vertical" style="width: 400px" (submit)="submitForm()" ngNativeValidate>
+    <div class="col-sm-12 text-center lead"> Sign in to Inmos</div>
+    <hr>
+    <input class="form-control mt-2" type="text" name="store_id" placeholder="Store ID" [(ngModel)]="formData.storeId" required>
+    <input class="form-control mt-2" type="password" name="password" placeholder="Password" [(ngModel)]="formData.password" required>
+    <button class="form-control mt-2 btn btn-primary" type="submit">Sign in</button>
+  </form>
+</div>
