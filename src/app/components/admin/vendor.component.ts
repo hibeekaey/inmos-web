@@ -57,6 +57,9 @@ export class VendorComponent implements OnInit {
   }
 
   setSelectedVendor(vendor) {
+    this.updateItem = vendor;
+    this.updateItem.email = vendor.contact.email[0];
+    this.updateItem.phone = vendor.contact.phone[0];
     this.selectedVendor = vendor;
   }
 
@@ -68,10 +71,12 @@ export class VendorComponent implements OnInit {
     return this.selectedVendor == null;
   }
 
-  updateVendor(vendor: VendorVO) {
-    this.vendorService.updateVendor(vendor)
+  updateVendor() {
+    this.vendorService.updateVendor(this.updateItem)
       .subscribeOn(Scheduler.async)
       .subscribe(() => {
+
+        this.refreshData();
         this.showVendorUpdateSuccess();
       }, error => console.log(error));
   }

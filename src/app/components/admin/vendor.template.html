@@ -84,11 +84,11 @@
         </div>
         <div class="modal-body">
           <form class="form-group mt-2" (submit)="updateVendor()" ngNativeValidate>
-            <input class="form-control" type="text" name="name" placeholder="Vendor name"
+            <input class="form-control mt-2" type="text" name="name" placeholder="Vendor name"
                    [(ngModel)]="updateItem.vendorName" required>
-            <input class="form-control" type="email" name="email" placeholder="Email"
+            <input class="form-control mt-2" type="email" name="email" placeholder="Email"
                    [(ngModel)]="updateItem.email" required>
-            <input class="form-control" type="text" name="phone" placeholder="Phone"
+            <input class="form-control mt-2" type="text" name="phone" placeholder="Phone"
                    [(ngModel)]="updateItem.phone" required>
             <button class="form-control mt-2 btn btn-primary">update</button>
           </form>

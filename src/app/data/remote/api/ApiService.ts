@@ -38,7 +38,7 @@ export class ApiService {
   }
 
   listVendors(): Observable<any> {
-    return this.sendGet(`${this.serverUrl}/vendor/all`, {});
+    return this.sendGet(`${this.serverUrl}/vendor/list`, {});
   }
 
   /**
