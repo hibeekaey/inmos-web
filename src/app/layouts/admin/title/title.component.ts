@@ -23,7 +23,7 @@ export class TitleComponent {
             }
           });
         } while (currentRoute);
-        this.titleService.setTitle( 'INMOS');
+        this.titleService.setTitle( 'INMOS WEB PORTAL');
       });
   }
 }
