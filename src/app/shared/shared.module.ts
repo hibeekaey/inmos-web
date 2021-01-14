@@ -16,7 +16,6 @@ import {GoTopButtonModule} from 'ng2-go-top-button';
 import {ScrollModule} from '../scroll/scroll.module';
 import {ToastyModule} from 'ng2-toasty';
 import {SimpleNotificationsModule} from 'angular2-notifications';
-import {TagInputModule} from 'ngx-chips';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {ClickOutsideModule} from 'ng-click-outside';
 
@@ -30,7 +29,6 @@ import {ClickOutsideModule} from 'ng-click-outside';
       ScrollModule,
       ToastyModule.forRoot(),
       SimpleNotificationsModule.forRoot(),
-      TagInputModule,
       Ng2GoogleChartsModule,
       ClickOutsideModule,
       GoTopButtonModule
@@ -63,7 +61,6 @@ import {ClickOutsideModule} from 'ng-click-outside';
       ScrollModule,
       ToastyModule,
       SimpleNotificationsModule,
-      TagInputModule,
       Ng2GoogleChartsModule,
       ClickOutsideModule,
       GoTopButtonModule

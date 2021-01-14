@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -45,6 +46,7 @@
     "angular2-notifications": "^0.7.8",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "express": "^4.17.1",
     "install": "^0.10.4",
     "jquery": "^3.2.1",
     "jquery-sparkline": "^2.4.0",
@@ -57,6 +59,7 @@
     "ngx-bootstrap": "^1.9.3",
     "ngx-chips": "^1.5.3",
     "npm": "^5.6.0",
+    "path": "^0.12.7",
     "raphael": "^2.2.7",
     "rxjs": "^5.4.2",
     "screenfull": "^3.3.1",
